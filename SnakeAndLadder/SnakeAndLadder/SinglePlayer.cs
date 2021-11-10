@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeAndLadder
 {
-    internal class SinglePlayer
+    class SinglePlayer
     {
         public const int NO_PLAY=0, SNAKE=1, LADDER=2, WINNING=100;
         public int StartPoint = 0;
@@ -37,10 +37,6 @@ namespace SnakeAndLadder
                 default:
                     Console.WriteLine("Invalid Option");  
                     break;
-               }
-               if (StartPoint < 0)
-               {
-                   StartPoint = 0; 
                }
             }
         }
