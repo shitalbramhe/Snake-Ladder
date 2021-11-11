@@ -12,33 +12,43 @@ namespace SnakeAndLadder
         public int StartPoint = 0;
         public int DiceRoll;
         int Option = 0;
+        int count=0;
         public void StartPlaying()
         {
-            while (this.StartPoint < 100)
+            while (this.StartPoint != 100)
             {
+                count++;
             Random Random = new Random(); 
             DiceRoll = Random.Next(1 , 7); 
+            
             Console.WriteLine("player Roll  Dice number is:" + " " + DiceRoll);
             Option = Random.Next(0, 3);  
-            Console.WriteLine("Dice value:" + Option); 
+            Console.WriteLine("option value:" + Option); 
             switch (Option) 
                {
                 case NO_PLAY:                            
                     Console.WriteLine("No Play");
                     break;
                 case SNAKE:                             
-                    StartPoint += DiceRoll;          
-                    Console.WriteLine("Got Ladder:" + StartPoint);
-                    break;
-                case LADDER:                                  
-                    StartPoint -= DiceRoll;             
+                    StartPoint -= DiceRoll;          
                     Console.WriteLine("Snake Attack:" + StartPoint);
+                    break;
+                case LADDER:                  
+                    StartPoint += DiceRoll;
+                    Console.WriteLine("Got Ladder:" + StartPoint);
                     break;
                 default:
                     Console.WriteLine("Invalid Option");  
                     break;
                }
+                if (StartPoint < 0)               
+                {
+                          StartPoint = 0;
+                }
             }
+            Console.WriteLine("Number of times Dice Roll " + count); 
+            Console.WriteLine("congratulation");
+	        Console.WriteLine("Game ended");
         }
     }
 }
